@@ -315,7 +315,6 @@ func (e *UniversalExecutor) Launch(command *ExecCommand) (*ProcessState, error) 
 	if e.resConCtx.isEmpty() {
 		go e.pidCollector.collectPids(e.processExited, getAllPids)
 	} else {
-		e.logger.Debug("NOT empty")
 		go e.pidCollector.collectPids(e.processExited, e.getAllPids)
 	}
 	go e.wait()
